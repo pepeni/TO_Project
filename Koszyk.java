@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Koszyk {
+public class Koszyk implements KoszykInterface{
     private static Koszyk instance;
     private List<String> koszyk;
 

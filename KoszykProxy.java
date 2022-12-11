@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class KoszykProxy {
+public class KoszykProxy implements KoszykInterface{
     private Koszyk db;
 
     public KoszykProxy(Koszyk db) {
