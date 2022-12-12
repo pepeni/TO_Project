@@ -1,6 +1,11 @@
+package database;
+
+import database.Koszyk;
+import database.KoszykInterface;
+
 import java.util.List;
 
-public class KoszykProxy implements KoszykInterface{
+public class KoszykProxy implements KoszykInterface {
     private Koszyk db;
 
     public KoszykProxy(Koszyk db) {

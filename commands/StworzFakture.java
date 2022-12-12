@@ -1,4 +1,8 @@
-public class StworzFakture implements Command{
+package commands;
+
+import database.KoszykProxy;
+
+public class StworzFakture implements Command {
 
     KoszykProxy koszyk;
 
@@ -8,6 +12,6 @@ public class StworzFakture implements Command{
 
     @Override
     public void execute() {
-
+        System.out.println("Stworz fakture :)");
     }
 }
