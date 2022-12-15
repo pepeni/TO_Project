@@ -1,4 +1,4 @@
-package furniture_production.furnitures;
+package furniture_production.furniture;
 
 import furniture_production.styles.Style;
 
