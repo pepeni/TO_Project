@@ -1,4 +1,4 @@
-package furniture_production.furniture;
+package furniture_production.furnitures;
 
 public interface Furniture {
     float getPrice() ;

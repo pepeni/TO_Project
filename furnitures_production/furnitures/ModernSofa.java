@@ -1,4 +1,4 @@
-package furniture_production.furniture;
+package furniture_production.furnitures;
 
 import furniture_production.styles.Style;
 import java.util.HashSet;

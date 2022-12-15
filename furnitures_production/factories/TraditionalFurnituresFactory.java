@@ -1,15 +1,15 @@
 package furniture_production.factories;
 
-import furniture_production.furniture.*;
+import furniture_production.furnitures.*;
 import furniture_production.styles.FrenchStyle;
 import furniture_production.styles.GreekStyle;
 import furniture_production.styles.Style;
 
-public class TraditionalFurnitureFactory implements FurnitureFactory {
+public class TraditionalFurnituresFactory implements  FurnituresFactory {
     TraditionalSofa traditionalSofa;
     TraditionalTable traditionalTable;
 
-    public TraditionalFurnitureFactory() {
+    public TraditionalFurnituresFactory() {
         this.traditionalSofa = new TraditionalSofa();
         this.traditionalTable = new TraditionalTable();
     }
@@ -62,7 +62,7 @@ public class TraditionalFurnitureFactory implements FurnitureFactory {
     }
 
     public static void main(String[] args) {
-        TraditionalFurnitureFactory factory= new TraditionalFurnitureFactory();
+        TraditionalFurnituresFactory factory= new TraditionalFurnituresFactory();
         factory.showPossibilities();
         factory.createSofa("French", 3);
         factory.getDetailsAboutSofaStyle("French");
