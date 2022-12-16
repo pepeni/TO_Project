@@ -3,7 +3,7 @@ package furnitures_production.furnitures;
 import furnitures_production.styles.Style;
 import java.util.HashSet;
 
-public class ModernSofa implements Furniture,Sofa{
+public class ModernSofa implements Sofa{
 
     Style style;
     int numberOfSeats;
@@ -67,7 +67,7 @@ public class ModernSofa implements Furniture,Sofa{
     }
 
     @Override
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 }

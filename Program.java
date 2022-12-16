@@ -13,11 +13,12 @@ public class Program {
         Koszyk koszyk = Koszyk.getInstance();
         KoszykProxy koszykProxy = new KoszykProxy(koszyk);
 
-        System.out.println("Witamy w naszym sklepie meblowym\nPoruszaj się po nim za pomocą następujących komend:\n\tdodaj mebel - Przejdź w tryb wyboru mebli\n\tfaktura - Swtórz fakturę\n\tzamknij - Zakoncz Program");
+        System.out.println("Witamy w naszym sklepie meblowym \"Sofy i Stoły\"");
         Scanner myObj = new Scanner(System.in);
         boolean program = true;
 
         while (program){
+            System.out.println("\nPoruszaj się po nim za pomocą następujących komend:\n\tdodaj mebel - Przejdź w tryb wyboru mebli\n\tfaktura - Swtórz fakturę\n\tzamknij - Zakoncz Program");
 
             System.out.println("\nCo chcesz zrobić?");
             String wybor = myObj.nextLine();

@@ -2,8 +2,10 @@ package database;
 
 import database.Koszyk;
 import database.KoszykInterface;
-import furnitures_production.furnitures.Furniture;
+import furnitures_production.furnitures.Sofa;
+import furnitures_production.furnitures.Table;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,18 +16,33 @@ public class KoszykProxy implements KoszykInterface {
         this.db = db;
     }
 
-    public void add(Furniture value) {
-        // add caching or logging functionality here
-        this.db.add(value);
+    @Override
+    public void add_sofa(Sofa value) {
+        db.add_sofa(value);
     }
 
-    public HashMap<Integer,Furniture> get() {
-        // add caching or logging functionality here
-        return this.db.get();
+    @Override
+    public void add_stol(Table value) {
+        db.add_stol(value);
     }
 
-    public void delete(int value) {
-        // add caching or logging functionality here
-        this.db.delete(value);
+    @Override
+    public ArrayList<Sofa> getSofy() {
+        return db.getSofy();
+    }
+
+    @Override
+    public ArrayList<Table> getStoly() {
+        return db.getStoly();
+    }
+
+    @Override
+    public void deleteSofy(int value) {
+        this.db.deleteSofy(value);
+    }
+
+    @Override
+    public void deleteStoly(int value) {
+        this.db.deleteStoly(value);
     }
 }

@@ -4,7 +4,7 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalSofa implements Furniture,Sofa{
+public class TraditionalSofa implements Sofa{
 
     Style style;
     float price = 258;
@@ -65,7 +65,7 @@ public class TraditionalSofa implements Furniture,Sofa{
         style.getDescriptionForSofa();
     }
     @Override
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 }

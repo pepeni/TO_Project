@@ -1,12 +1,17 @@
 package database;
 
-import furnitures_production.furnitures.Furniture;
+import furnitures_production.furnitures.Sofa;
+import furnitures_production.furnitures.Table;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public interface KoszykInterface {
-    public void add(Furniture value);
-    public HashMap<Integer,Furniture> get();
-    public void delete(int value);
+    public void add_sofa(Sofa value);
+    public void add_stol(Table value);
+    public ArrayList<Sofa> getSofy();
+    public ArrayList<Table> getStoly();
+    public void deleteSofy(int value);
+    public void deleteStoly(int value);
 }

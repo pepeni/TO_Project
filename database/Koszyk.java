@@ -3,17 +3,20 @@ package database;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import furnitures_production.furnitures.Furniture;
+import furnitures_production.furnitures.Sofa;
+import furnitures_production.furnitures.Table;
 
 
 public class Koszyk implements KoszykInterface {
     private static Koszyk instance;
-    private HashMap<Integer,Furniture> koszyk;
-    private int id;
+    private ArrayList<Table> koszykStoly;
+    private ArrayList<Sofa> koszykSofy;
+    private int idSofy;
 
     private Koszyk() {
         // initialize database
-        this.koszyk = new HashMap<>();
+        this.koszykStoly = new ArrayList<>();
+        this.koszykSofy = new ArrayList<>();
     }
 
     public static Koszyk getInstance() {
@@ -23,16 +26,34 @@ public class Koszyk implements KoszykInterface {
         return instance;
     }
 
-    public void add(Furniture value) {
-        this.koszyk.put(id,value);
-        id+=1;
+
+    @Override
+    public void add_sofa(Sofa value) {
+        koszykSofy.add(value);
     }
 
-    public HashMap<Integer,Furniture> get() {
-        return this.koszyk;
+    @Override
+    public void add_stol(Table value) {
+        koszykStoly.add(value);
     }
 
-    public void delete(int value) {
-        this.koszyk.remove(value);
+    @Override
+    public ArrayList<Sofa> getSofy() {
+        return koszykSofy;
+    }
+
+    @Override
+    public ArrayList<Table> getStoly() {
+        return koszykStoly;
+    }
+
+    @Override
+    public void deleteSofy(int value) {
+        this.koszykSofy.remove(value);
+    }
+
+    @Override
+    public void deleteStoly(int value) {
+        this.koszykStoly.remove(value);
     }
 }

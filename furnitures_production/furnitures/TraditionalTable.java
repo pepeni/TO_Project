@@ -4,7 +4,7 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalTable implements Furniture,Table {
+public class TraditionalTable implements Table {
     Style style;
     String typeOfTable;
     float price;
@@ -72,7 +72,7 @@ public class TraditionalTable implements Furniture,Table {
         style.getDescriptionForTable();
     }
     @Override
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
     @Override

@@ -13,5 +13,6 @@ public interface  Table {
     void setTypeOfTable(String type);
     HashSet<String> getPossibleStyles();
     void  getDetailsAboutStyle();
+    double getPrice() ;
 
 }

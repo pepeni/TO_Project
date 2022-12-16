@@ -13,4 +13,5 @@ public interface Sofa {
     HashSet<String> getPossibleStyles();
     void  getDetailsAboutStyle();
     public String getInformationAboutSofa();
+    double getPrice() ;
 }

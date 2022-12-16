@@ -4,7 +4,7 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class ModernTable implements  Furniture,Table{
+public class ModernTable implements  Table{
 
     Style style;
     String typeOfTable;
@@ -75,7 +75,7 @@ public class ModernTable implements  Furniture,Table{
         style.getDescriptionForTable();
     }
     @Override
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
     public String getInformationAboutTable()
