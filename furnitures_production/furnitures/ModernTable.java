@@ -1,15 +1,15 @@
-package furniture_production.furnitures;
+package furnitures_production.furnitures;
 
-import furniture_production.styles.Style;
+import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class ModernTable implements  Table, Furniture{
+public class ModernTable implements  Table{
 
     Style style;
     String typeOfTable;
     String shape;
-    float price;
+    float price = 124;
     HashSet<String> possibleStyle;
     HashSet<String> possibleTypesOfTable;
     HashSet<String> possibleShapesOfTable;

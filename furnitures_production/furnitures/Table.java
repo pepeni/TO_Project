@@ -1,10 +1,10 @@
-package furniture_production.furnitures;
+package furnitures_production.furnitures;
 
-import furniture_production.styles.Style;
+import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public interface  Table {
+public interface  Table extends Furniture {
 
     void getInformationAboutTable();
     void setStyle(Style style);

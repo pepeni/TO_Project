@@ -1,9 +1,9 @@
-package furniture_production.furnitures;
+package furnitures_production.furnitures;
 
-import furniture_production.styles.Style;
+import furnitures_production.styles.Style;
 import java.util.HashSet;
 
-public class ModernSofa implements Sofa, Furniture{
+public class ModernSofa implements Sofa{
 
     Style style;
     int numberOfSeats;

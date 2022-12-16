@@ -1,9 +1,9 @@
-package furniture_production.factories;
+package furnitures_production.factories;
 
-import furniture_production.furnitures.*;
-import furniture_production.styles.FrenchStyle;
-import furniture_production.styles.GreekStyle;
-import furniture_production.styles.Style;
+import furnitures_production.furnitures.*;
+import furnitures_production.styles.FrenchStyle;
+import furnitures_production.styles.GreekStyle;
+import furnitures_production.styles.Style;
 
 
 public class ModernFurnituresFactory implements FurnituresFactory {

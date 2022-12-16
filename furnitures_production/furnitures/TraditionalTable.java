@@ -1,10 +1,10 @@
-package furniture_production.furnitures;
+package furnitures_production.furnitures;
 
-import furniture_production.styles.Style;
+import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalTable implements Table, Furniture {
+public class TraditionalTable implements Table {
     Style style;
     String typeOfTable;
     float price;

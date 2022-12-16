@@ -1,13 +1,13 @@
-package furniture_production.furnitures;
+package furnitures_production.furnitures;
 
-import furniture_production.styles.Style;
+import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalSofa implements Sofa, Furniture{
+public class TraditionalSofa implements Sofa{
 
     Style style;
-    float price;
+    float price = 258;
     int numberOfSeats;
     public static final boolean sleeperSofa=false;
 
