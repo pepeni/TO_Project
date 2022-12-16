@@ -4,7 +4,7 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalSofa implements Sofa{
+public class TraditionalSofa implements Furniture,Sofa{
 
     Style style;
     float price = 258;
@@ -37,7 +37,7 @@ public class TraditionalSofa implements Sofa{
             throw new IllegalArgumentException();
     }
     @Override
-    public void getInformationAboutSofa()
+    public void showInformationAboutSofa()
     {
         System.out.println("Traditional Sofa");
         System.out.println("Possible number of seats");
@@ -49,6 +49,10 @@ public class TraditionalSofa implements Sofa{
         possibleStyle.forEach(p-> System.out.print(p+", "));
         System.out.println();
 
+    }
+    public String getInformationAboutSofa()
+    {
+        return "Traditional Sofa: "+"    price: "+price+"     number of seats: "+numberOfSeats+ "     style: "+style.getName()+"     sleeper sofa: "+ sleeperSofa;
     }
 
     @Override

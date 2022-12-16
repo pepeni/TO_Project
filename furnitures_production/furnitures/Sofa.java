@@ -4,12 +4,13 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public interface Sofa extends Furniture {
+public interface Sofa {
 
     void setNumberOfSeats(int numberOfSeats);
-    void getInformationAboutSofa();
+    void showInformationAboutSofa();
 
     void setStyle(Style style);
     HashSet<String> getPossibleStyles();
     void  getDetailsAboutStyle();
+    public String getInformationAboutSofa();
 }

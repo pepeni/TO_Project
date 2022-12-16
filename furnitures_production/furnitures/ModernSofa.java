@@ -3,7 +3,7 @@ package furnitures_production.furnitures;
 import furnitures_production.styles.Style;
 import java.util.HashSet;
 
-public class ModernSofa implements Sofa{
+public class ModernSofa implements Furniture,Sofa{
 
     Style style;
     int numberOfSeats;
@@ -38,7 +38,7 @@ public class ModernSofa implements Sofa{
 
 
     @Override
-    public void getInformationAboutSofa()
+    public void showInformationAboutSofa()
     {
         System.out.println("Modern Sofa");
         System.out.println("Possible number of seats");
@@ -50,6 +50,10 @@ public class ModernSofa implements Sofa{
         possibleStyle.forEach(p-> System.out.print(p+", "));
         System.out.println();
 
+    }
+    public String getInformationAboutSofa()
+    {
+        return "Modern Sofa: "+"    "+"price: "+price+"    "+" number of seats: "+numberOfSeats+ "    "+" style: "+style.getName()+"    "+" sleeper sofa "+ sleeperSofa;
     }
     @Override
     public HashSet<String> getPossibleStyles()

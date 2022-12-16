@@ -4,7 +4,7 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public class ModernTable implements  Table{
+public class ModernTable implements  Furniture,Table{
 
     Style style;
     String typeOfTable;
@@ -51,7 +51,7 @@ public class ModernTable implements  Table{
             throw new IllegalArgumentException();
     }
 
-    public  void getInformationAboutTable()
+    public  void showInformationAboutTable()
     {
         System.out.println("Modern Table");
         System.out.println("Shapes:");
@@ -78,5 +78,10 @@ public class ModernTable implements  Table{
     public float getPrice() {
         return price;
     }
+    public String getInformationAboutTable()
+    {
+        return "Modern Table: "+"    price: "+price+"     type of table: "+typeOfTable+ "     style: "+style.getName()+"     shape: "+ shape;
+    }
 
 }
+

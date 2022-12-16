@@ -4,9 +4,10 @@ import furnitures_production.styles.Style;
 
 import java.util.HashSet;
 
-public interface  Table extends Furniture {
+public interface  Table {
 
-    void getInformationAboutTable();
+    void showInformationAboutTable();
+    String getInformationAboutTable();
     void setStyle(Style style);
     void setShapeOfTable(String shape);
     void setTypeOfTable(String type);
