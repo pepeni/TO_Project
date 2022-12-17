@@ -39,7 +39,7 @@ public class ZarzadzajKoszykiem implements Command {
     public void dodawania_do_koszyka(){
         boolean dodawanie = true;
         Scanner myObj = new Scanner(System.in);
-        System.out.println("\nWpisz poprawnie nazwy przedmiotów, które chcesz dodać do koszyka");
+        System.out.println("\nCo chcesz wybierać?");
 
         while(dodawanie){
             System.out.println("\nsofy - przejdź do wyboru sofy\nstoly - przedź do wyboru stołów\nwyjdz - wyjdź");
@@ -57,10 +57,17 @@ public class ZarzadzajKoszykiem implements Command {
         ModernFurnituresFactory modernFurnituresFactory = new ModernFurnituresFactory();
         TraditionalFurnituresFactory traditionalFurnituresFactory = new TraditionalFurnituresFactory();
 
+        System.out.println("\nWpisz poprawnie nazwy przedmiotów, które chcesz dodać do koszyka\nwyjdz - wyjdź z tego trybu");
+        System.out.println("\nsofy:\n");
+        //Tutaj chciałbym wypisać wszystkie dostępne możliwości z instrukcją jak wpisać komendy
         while(dodawanie){
-            System.out.println("\nsofy:\n");
             String wybor = myObj.nextLine();
             if(Objects.equals(wybor, "wyjdz")){dodawanie = false;}
+            //Tutaj obsługa tych komend i dodanie do koszyka przykład:
+            /*else if(Objects.equals(wybor, "1")){
+                koszyk.add_sofa(modernFurnituresFactory.createSofa("French", "3"));
+                System.out.println("pomyślnie dodano sofę :)");
+            }*/
         }
     }
 
@@ -70,10 +77,17 @@ public class ZarzadzajKoszykiem implements Command {
         ModernFurnituresFactory modernFurnituresFactory = new ModernFurnituresFactory();
         TraditionalFurnituresFactory traditionalFurnituresFactory = new TraditionalFurnituresFactory();
 
+        System.out.println("\nWpisz poprawnie nazwy przedmiotów, które chcesz dodać do koszyka\nwyjdz - wyjdź z tego trybu");
+        System.out.println("\nstoly:\n");
+        //Tutaj chciałbym wypisać wszystkie dostępne możliwości z instrukcją jak wpisać komendy
         while(dodawanie){
-            System.out.println("\nstoly:\n");
             String wybor = myObj.nextLine();
             if(Objects.equals(wybor, "wyjdz")){dodawanie = false;}
+            //Tutaj obsługa tych komend i dodanie do koszyka przykład:
+            /*else if(Objects.equals(wybor, "1")){
+                koszyk.add_stol(modernFurnituresFactory.createTable("French", "dining table", "rectangular"));
+                System.out.println("pomyślnie dodano stół :)");
+            }*/
         }
 
     }
