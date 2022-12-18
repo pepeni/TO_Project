@@ -1,6 +1,6 @@
-package furnitures_production.furnitures;
+package furniture_production.furnitures;
 
-import furnitures_production.styles.Style;
+import furniture_production.styles.Style;
 
 import java.util.HashSet;
 
@@ -11,7 +11,7 @@ public interface Sofa {
 
     void setStyle(Style style);
     HashSet<String> getPossibleStyles();
-    void  getDetailsAboutStyle();
+    String  getDetailsAboutStyle();
     public String getInformationAboutSofa();
     double getPrice() ;
 }

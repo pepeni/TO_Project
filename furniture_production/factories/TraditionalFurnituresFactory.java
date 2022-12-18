@@ -1,9 +1,11 @@
-package furnitures_production.factories;
+package furniture_production.factories;
 
-import furnitures_production.furnitures.*;
-import furnitures_production.styles.FrenchStyle;
-import furnitures_production.styles.GreekStyle;
-import furnitures_production.styles.Style;
+import furniture_production.furnitures.*;
+import furniture_production.styles.FrenchStyle;
+import furniture_production.styles.GreekStyle;
+import furniture_production.styles.Style;
+
+import java.util.Objects;
 
 public class TraditionalFurnituresFactory implements  FurnituresFactory {
     TraditionalSofa traditionalSofa;
@@ -41,20 +43,23 @@ public class TraditionalFurnituresFactory implements  FurnituresFactory {
     }
 
     @Override
-    public void showPossibilities()
+    public void showSofaOptions()
     {
-        traditionalSofa.getInformationAboutSofa();
-        System.out.println();
-        traditionalTable.getInformationAboutTable();
+        traditionalSofa.showInformationAboutSofa();
         System.out.println();
 
     }
+    public void showTableOptions()
+    {
+        traditionalTable.showInformationAboutTable();
+        System.out.println();
+    }
     public Style getChoosenStyle(String s)
     {
-        if(s=="Greek")
+        if(Objects.equals(s, "Greek"))
         {
             return new GreekStyle();
-        } else if (s=="French") {
+        } else if (Objects.equals(s, "French")) {
             return new FrenchStyle();
         }
         else
@@ -63,7 +68,7 @@ public class TraditionalFurnituresFactory implements  FurnituresFactory {
 
     public static void main(String[] args) {
         TraditionalFurnituresFactory factory= new TraditionalFurnituresFactory();
-        factory.showPossibilities();
+        factory.showSofaOptions();
         factory.createSofa("French", 3);
         factory.getDetailsAboutSofaStyle("French");
         factory.createTable("French", "coffe table", "rectangular");

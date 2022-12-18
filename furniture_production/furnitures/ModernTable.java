@@ -1,27 +1,31 @@
-package furnitures_production.furnitures;
+package furniture_production.furnitures;
 
-import furnitures_production.styles.Style;
+import furniture_production.styles.Style;
 
 import java.util.HashSet;
 
-public class TraditionalTable implements Table {
+public class ModernTable implements  Table{
+
     Style style;
     String typeOfTable;
-    float price;
     String shape;
+    float price = 124;
     HashSet<String> possibleStyle;
     HashSet<String> possibleTypesOfTable;
     HashSet<String> possibleShapesOfTable;
-
-    public TraditionalTable() {
-        possibleShapesOfTable = new HashSet<>();
+    public ModernTable() {
+        possibleShapesOfTable=new HashSet<>();
         possibleShapesOfTable.add("rectangular");
         possibleShapesOfTable.add("circle");
-        possibleStyle = new HashSet<>();
+        possibleShapesOfTable.add("square");
+        possibleStyle=new HashSet<>();
+        possibleStyle.add("Greek");
         possibleStyle.add("French");
-        possibleTypesOfTable = new HashSet<>();
+        possibleTypesOfTable=new HashSet<>();
+        possibleTypesOfTable.add("accent table");
         possibleTypesOfTable.add("dinning table");
         possibleTypesOfTable.add("coffe table");
+
     }
 
     @Override
@@ -29,7 +33,7 @@ public class TraditionalTable implements Table {
         if (possibleTypesOfTable.contains(type))
             this.typeOfTable = type;
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Podano bledny rodzaj");
     }
 
     @Override
@@ -37,50 +41,47 @@ public class TraditionalTable implements Table {
         if (possibleStyle.contains(style.getName()))
             this.style = style;
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Podano bledny styl");
     }
-
     @Override
     public void setShapeOfTable(String shape) {
         if (possibleShapesOfTable.contains(shape))
             this.shape = shape;
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Podano bledny ksztalt");
     }
 
-    public void showInformationAboutTable() {
-        System.out.println("Traditional Table");
+    public  void showInformationAboutTable()
+    {
+        System.out.println("name:   Modern Table");
         System.out.println("Shapes:");
-        possibleShapesOfTable.forEach(p -> System.out.print(p + ", "));
+        possibleShapesOfTable.forEach(p-> System.out.print(p+", "));
         System.out.println();
         System.out.println("Types:");
-        possibleTypesOfTable.forEach(p -> System.out.print(p + ", "));
+        possibleTypesOfTable.forEach(p-> System.out.print(p+", "));
         System.out.println();
         System.out.println("Possible styles:");
-        possibleStyle.forEach(p -> System.out.print(p + ", "));
+        possibleStyle.forEach(p-> System.out.print(p+", "));
         System.out.println();
-
     }
 
     @Override
     public HashSet<String> getPossibleStyles() {
-        return possibleStyle;
+        return  possibleStyle;
     }
 
     @Override
-    public void getDetailsAboutStyle() {
-        style.getDescriptionForTable();
+    public  String getDetailsAboutStyle() {
+        return style.getDescriptionForTable();
     }
     @Override
     public double getPrice() {
         return price;
     }
-    @Override
     public String getInformationAboutTable()
     {
         return "Modern Table: "+"    price: "+price+"     type of table: "+typeOfTable+ "     style: "+style.getName()+"     shape: "+ shape;
     }
-
 
 }
 

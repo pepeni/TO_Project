@@ -1,7 +1,7 @@
 package database;
 
-import furnitures_production.furnitures.Sofa;
-import furnitures_production.furnitures.Table;
+import furniture_production.furnitures.Sofa;
+import furniture_production.furnitures.Table;
 
 import java.util.ArrayList;
 import java.util.HashMap;

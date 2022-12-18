@@ -1,9 +1,11 @@
-package furnitures_production.factories;
+package furniture_production.factories;
 
-import furnitures_production.furnitures.*;
-import furnitures_production.styles.FrenchStyle;
-import furnitures_production.styles.GreekStyle;
-import furnitures_production.styles.Style;
+import furniture_production.furnitures.*;
+import furniture_production.styles.FrenchStyle;
+import furniture_production.styles.GreekStyle;
+import furniture_production.styles.Style;
+
+import java.util.Objects;
 
 
 public class ModernFurnituresFactory implements FurnituresFactory {
@@ -17,7 +19,6 @@ public class ModernFurnituresFactory implements FurnituresFactory {
     }
 
     public Sofa createSofa(String style, int numberOfSeats) {
-
         modernSofa.setStyle(getChoosenStyle(style));
         modernSofa.setNumberOfSeats(numberOfSeats);
         return modernSofa;
@@ -42,21 +43,25 @@ public class ModernFurnituresFactory implements FurnituresFactory {
         modernTable.getDetailsAboutStyle();
     }
 
-    public void showPossibilities() {
-        modernSofa.getInformationAboutSofa();
-        System.out.println();
-        modernTable.getInformationAboutTable();
+    public void showSofaOptions() {
+        modernSofa.showInformationAboutSofa();
         System.out.println();
 
+    }
+    public void showTableOptions()
+    {
+        modernTable.showInformationAboutTable();
+        System.out.println();
     }
 
 
     public Style getChoosenStyle(String s)
     {
-        if(s=="Greek")
+        if(Objects.equals(s, "Greek"))
         {
             return new GreekStyle();
-        } else if (s=="French") {
+        }
+        else if (Objects.equals(s, "French")) {
             return new FrenchStyle();
         }
         else
@@ -65,7 +70,7 @@ public class ModernFurnituresFactory implements FurnituresFactory {
 
     public static void main(String[] args) {
         ModernFurnituresFactory factory= new ModernFurnituresFactory();
-        factory.showPossibilities();
+        factory.showSofaOptions();
         factory.createSofa("Greek", 2);
         factory.getDetailsAboutSofaStyle("Greek");
         factory.createTable("Greek", "accent table", "circle");

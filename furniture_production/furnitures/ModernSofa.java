@@ -1,6 +1,6 @@
-package furnitures_production.furnitures;
+package furniture_production.furnitures;
 
-import furnitures_production.styles.Style;
+import furniture_production.styles.Style;
 import java.util.HashSet;
 
 public class ModernSofa implements Sofa{
@@ -25,14 +25,14 @@ public class ModernSofa implements Sofa{
         if (possibleStyle.contains(style.getName()))
             this.style = style;
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Podano bledny styl");
     }
 
     public void setNumberOfSeats(int numberOfSeats) {
         if(possibleNumberOfSeats.contains(numberOfSeats))
             this.numberOfSeats = numberOfSeats;
         else
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Podano bledna ilosc siedzen");
     }
 
 
@@ -40,7 +40,7 @@ public class ModernSofa implements Sofa{
     @Override
     public void showInformationAboutSofa()
     {
-        System.out.println("Modern Sofa");
+        System.out.println("name:   Modern Sofa");
         System.out.println("Possible number of seats");
         possibleNumberOfSeats.forEach(p-> System.out.print(p+", "));
         System.out.println();
@@ -61,9 +61,9 @@ public class ModernSofa implements Sofa{
         return possibleStyle;
     }
     @Override
-    public void  getDetailsAboutStyle()
+    public  String  getDetailsAboutStyle()
     {
-        style.getDescriptionForSofa();
+        return style.getDescriptionForSofa();
     }
 
     @Override
