@@ -1,20 +1,20 @@
-package option_managers;
+package adding_managers;
 
 import database.KoszykProxy;
-import furnitures_production.factories.ModernFurnituresFactory;
-import furnitures_production.factories.TraditionalFurnituresFactory;
+import furniture_production.factories.ModernFurnituresFactory;
+import furniture_production.factories.TraditionalFurnituresFactory;
 
 import java.util.Objects;
 import java.util.Scanner;
 
-public abstract class OptionManager {
+public abstract class AddingManager {
     boolean dodawanie;
     Scanner myObj;
     ModernFurnituresFactory modernFurnituresFactory;
     TraditionalFurnituresFactory traditionalFurnituresFactory;
     KoszykProxy basket;
 
-    public OptionManager(KoszykProxy basket) {
+    public AddingManager(KoszykProxy basket) {
         this.basket= basket;
     }
 
@@ -24,7 +24,7 @@ public abstract class OptionManager {
         String option= getOption();
         while(option!=null)
         {
-            createFurniture(option);
+            if(createFurniture(option)== true);
             addFurniture();
             showInstruction();
             option=getOption();
@@ -51,7 +51,7 @@ public abstract class OptionManager {
             else return choice;
 
     }
-    abstract public void createFurniture(String option);
+    abstract public boolean createFurniture(String option);
     abstract public void addFurniture();
 
 
