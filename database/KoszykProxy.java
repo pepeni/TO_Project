@@ -18,12 +18,16 @@ public class KoszykProxy implements KoszykInterface {
 
     @Override
     public void add_sofa(Sofa value) {
-        db.add_sofa(value);
+        if(value!= null){
+            db.add_sofa(value);
+        }
     }
 
     @Override
     public void add_stol(Table value) {
-        db.add_stol(value);
+        if(value!= null){
+            db.add_stol(value);
+        }
     }
 
     @Override

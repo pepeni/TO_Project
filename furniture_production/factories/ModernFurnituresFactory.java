@@ -19,9 +19,10 @@ public class ModernFurnituresFactory implements FurnituresFactory {
     }
 
     public Sofa createSofa(String style, int numberOfSeats) {
-        modernSofa.setStyle(getChoosenStyle(style));
-        modernSofa.setNumberOfSeats(numberOfSeats);
-        return modernSofa;
+        ModernSofa modernSofa1 = new ModernSofa();
+        modernSofa1.setStyle(getChoosenStyle(style));
+        modernSofa1.setNumberOfSeats(numberOfSeats);
+        return modernSofa1;
     }
 
     public void getDetailsAboutSofaStyle(String style)
@@ -32,10 +33,11 @@ public class ModernFurnituresFactory implements FurnituresFactory {
 
 
     public Table createTable(String style, String type, String shape) {
-        modernTable.setStyle(getChoosenStyle(style));
-        modernTable.setTypeOfTable(type);
-        modernTable.setShapeOfTable(shape);
-        return modernTable;
+        ModernTable modernTable1 = new ModernTable();
+        modernTable1.setStyle(getChoosenStyle(style));
+        modernTable1.setTypeOfTable(type);
+        modernTable1.setShapeOfTable(shape);
+        return modernTable1;
     }
     public void getDetailsAboutTableStyle(String style)
     {

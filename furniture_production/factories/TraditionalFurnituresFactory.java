@@ -18,10 +18,10 @@ public class TraditionalFurnituresFactory implements  FurnituresFactory {
 
     @Override
     public Sofa createSofa( String style, int numberOfSeats) {
-
-            traditionalSofa.setStyle(getChoosenStyle(style));
-            traditionalSofa.setNumberOfSeats(numberOfSeats);
-            return traditionalSofa;
+            TraditionalSofa traditionalSofa1 = new TraditionalSofa();
+            traditionalSofa1.setStyle(getChoosenStyle(style));
+            traditionalSofa1.setNumberOfSeats(numberOfSeats);
+            return traditionalSofa1;
 
     }
     public void getDetailsAboutSofaStyle(String style)
@@ -31,10 +31,11 @@ public class TraditionalFurnituresFactory implements  FurnituresFactory {
     }
     @Override
     public Table createTable(String style, String type, String shape) {
-        traditionalTable.setStyle(getChoosenStyle(style));
-        traditionalTable.setTypeOfTable(type);
-        traditionalTable.setShapeOfTable(shape);
-        return traditionalTable;
+        TraditionalTable traditionalTable1 = new TraditionalTable();
+        traditionalTable1.setStyle(getChoosenStyle(style));
+        traditionalTable1.setTypeOfTable(type);
+        traditionalTable1.setShapeOfTable(shape);
+        return traditionalTable1;
     }
     public void getDetailsAboutTableStyle(String style)
     {
