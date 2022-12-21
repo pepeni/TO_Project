@@ -20,8 +20,6 @@ public class ZarzadzajKoszykiem implements Command {
         this.koszyk = koszyk;
     }
 
-    ;
-
     @Override
     public void execute() {
         boolean zarzadzanie = true;

@@ -2,9 +2,10 @@ package furniture_production.furnitures;
 
 import furniture_production.styles.Style;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
-public class ModernTable implements  Table{
+public class ModernTable implements Table {
 
     Style style;
     String typeOfTable;
@@ -13,19 +14,11 @@ public class ModernTable implements  Table{
     HashSet<String> possibleStyle;
     HashSet<String> possibleTypesOfTable;
     HashSet<String> possibleShapesOfTable;
-    public ModernTable() {
-        possibleShapesOfTable=new HashSet<>();
-        possibleShapesOfTable.add("rectangular");
-        possibleShapesOfTable.add("circle");
-        possibleShapesOfTable.add("square");
-        possibleStyle=new HashSet<>();
-        possibleStyle.add("Greek");
-        possibleStyle.add("French");
-        possibleTypesOfTable=new HashSet<>();
-        possibleTypesOfTable.add("accent table");
-        possibleTypesOfTable.add("dinning table");
-        possibleTypesOfTable.add("coffe table");
 
+    public ModernTable() {
+        possibleShapesOfTable = new HashSet<>(Arrays.asList("rectangular", "circle", "square"));
+        possibleStyle = new HashSet<>(Arrays.asList("Greek", "French"));
+        possibleTypesOfTable = new HashSet<>(Arrays.asList("accent table", "dinning table", "coffee table"));
     }
 
     @Override
@@ -43,6 +36,7 @@ public class ModernTable implements  Table{
         else
             throw new IllegalArgumentException("Podano bledny styl");
     }
+
     @Override
     public void setShapeOfTable(String shape) {
         if (possibleShapesOfTable.contains(shape))
@@ -51,36 +45,41 @@ public class ModernTable implements  Table{
             throw new IllegalArgumentException("Podano bledny ksztalt");
     }
 
-    public  void showInformationAboutTable()
-    {
+    public void showInformationAboutTable() {
         System.out.println("name:   Modern Table");
         System.out.println("Shapes:");
-        possibleShapesOfTable.forEach(p-> System.out.print(p+", "));
+        possibleShapesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
         System.out.println("Types:");
-        possibleTypesOfTable.forEach(p-> System.out.print(p+", "));
+        possibleTypesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
         System.out.println("Possible styles:");
-        possibleStyle.forEach(p-> System.out.print(p+", "));
+        possibleStyle.forEach(p -> System.out.print(p + ", "));
         System.out.println();
     }
 
     @Override
     public HashSet<String> getPossibleStyles() {
-        return  possibleStyle;
+        return possibleStyle;
     }
 
     @Override
-    public  String getDetailsAboutStyle() {
+    public String getDetailsAboutStyle() {
         return style.getDescriptionForTable();
     }
+
     @Override
     public double getPrice() {
         return price;
     }
-    public String getInformationAboutTable()
-    {
-        return "Modern Table: "+"    price: "+price+"     type of table: "+typeOfTable+ "     style: "+style.getName()+"     shape: "+ shape;
+
+    public String getInformationAboutTable() {
+        return "Modern Table: " + "    price: " + price + "     type of table: " + typeOfTable + "     style: " + style.getName() + "     shape: " + shape;
+    }
+
+    @Override
+    public String getInformationForFacture(){
+        return "Modern Table. " + typeOfTable + ", " + style.getName() + ", " + shape;
     }
 
 }

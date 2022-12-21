@@ -5,7 +5,10 @@ import furniture_production.furnitures.Table;
 
 public interface FurnituresFactory {
     Table createTable(String style, String type, String shape);
+
     Sofa createSofa(String style, int numberOfSeats);
-     void showSofaOptions();
-     void showTableOptions();
+
+    void showSofaOptions();
+
+    void showTableOptions();
 }

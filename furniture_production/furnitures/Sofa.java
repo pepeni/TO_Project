@@ -8,10 +8,10 @@ public interface Sofa {
 
     void setNumberOfSeats(int numberOfSeats);
     void showInformationAboutSofa();
-
+    String getInformationForFacture();
     void setStyle(Style style);
     HashSet<String> getPossibleStyles();
     String  getDetailsAboutStyle();
-    public String getInformationAboutSofa();
+    String getInformationAboutSofa();
     double getPrice() ;
 }

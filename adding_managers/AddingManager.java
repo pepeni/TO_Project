@@ -15,19 +15,19 @@ public abstract class AddingManager {
     KoszykProxy basket;
 
     public AddingManager(KoszykProxy basket) {
-        this.basket= basket;
+        this.basket = basket;
     }
 
     public void steps() {
         setVariables();
         showInformation();
-        String option= getOption();
-        while(option!=null)
-        {
-            if(createFurniture(option)== true);
-            addFurniture();
-            showInstruction();
-            option=getOption();
+        String option = getOption();
+        while (option != null) {
+            if (createFurniture(option)) {
+                addFurniture();
+                showInstruction();
+                option = getOption();
+            }
         }
 
     }
@@ -39,19 +39,23 @@ public abstract class AddingManager {
         traditionalFurnituresFactory = new TraditionalFurnituresFactory();
 
     }
-    public void showInstruction()
-    {
+
+    public void showInstruction() {
         System.out.println("\nWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszyka\nwyjdz - wyjdź z tego trybu");
     }
+
     public abstract void showInformation();
-    public String getOption()
-    {
-            String choice = myObj.nextLine();
-            if(Objects.equals(choice, "wyjdz")){return null;}
-            else return choice;
+
+    public String getOption() {
+        String choice = myObj.nextLine();
+        if (Objects.equals(choice, "wyjdz")) {
+            return null;
+        } else return choice;
 
     }
+
     abstract public boolean createFurniture(String option);
+
     abstract public void addFurniture();
 
 

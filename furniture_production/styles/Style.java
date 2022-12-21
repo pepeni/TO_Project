@@ -6,6 +6,7 @@ public interface Style {
     String getDescriptionForSofa();
 
     String getDescriptionForTable();
+
     String getName();
 
 

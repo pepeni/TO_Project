@@ -12,6 +12,7 @@ public interface  Table {
     void setShapeOfTable(String shape);
     void setTypeOfTable(String type);
     HashSet<String> getPossibleStyles();
+    String getInformationForFacture();
     String  getDetailsAboutStyle();
     double getPrice() ;
 

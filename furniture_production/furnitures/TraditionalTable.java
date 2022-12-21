@@ -2,26 +2,23 @@ package furniture_production.furnitures;
 
 import furniture_production.styles.Style;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 public class TraditionalTable implements Table {
     Style style;
     String typeOfTable;
-    float price;
+    float price = 500;
     String shape;
     HashSet<String> possibleStyle;
     HashSet<String> possibleTypesOfTable;
     HashSet<String> possibleShapesOfTable;
 
     public TraditionalTable() {
-        possibleShapesOfTable = new HashSet<>();
-        possibleShapesOfTable.add("rectangular");
-        possibleShapesOfTable.add("circle");
-        possibleStyle = new HashSet<>();
-        possibleStyle.add("French");
-        possibleTypesOfTable = new HashSet<>();
-        possibleTypesOfTable.add("dinning table");
-        possibleTypesOfTable.add("coffe table");
+        possibleShapesOfTable = new HashSet<>(Arrays.asList("rectangular", "circle"));
+        possibleStyle = new HashSet<>(List.of("French"));
+        possibleTypesOfTable = new HashSet<>(Arrays.asList("dinning table", "coffee table"));
     }
 
     @Override
@@ -68,17 +65,23 @@ public class TraditionalTable implements Table {
     }
 
     @Override
-    public  String getDetailsAboutStyle() {
+    public String getDetailsAboutStyle() {
         return style.getDescriptionForTable();
     }
+
     @Override
     public double getPrice() {
         return price;
     }
+
     @Override
-    public String getInformationAboutTable()
-    {
-        return "Traditional Table: "+"    price: "+price+"     type of table: "+typeOfTable+ "     style: "+style.getName()+"     shape: "+ shape;
+    public String getInformationAboutTable() {
+        return "Traditional Table: " + "    price: " + price + "     type of table: " + typeOfTable + "     style: " + style.getName() + "     shape: " + shape;
+    }
+
+    @Override
+    public String getInformationForFacture(){
+        return "Traditional Table. " + typeOfTable + ", " + style.getName() + ", " + shape;
     }
 
 

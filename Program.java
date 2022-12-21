@@ -18,17 +18,22 @@ public class Program {
         Scanner myObj = new Scanner(System.in);
         boolean program = true;
 
-        while (program){
+        while (program) {
             System.out.println("\nPoruszaj się po programie za pomocą następujących komend:\n\tzarzadzaj - Przejdź w tryb wyboru i usuwania mebli\n\tkoszyk - sprawdź zawartość koszyka\n\tfaktura - Swtórz fakturę\n\tzamknij - Zakoncz Program");
 
             System.out.println("\nCo chcesz zrobić?");
             String wybor = myObj.nextLine();
 
 
-            if(Objects.equals(wybor, "zarzadzaj")){ new ZarzadzajKoszykiem(koszykProxy).execute(); }
-            else if(Objects.equals(wybor, "koszyk")){ new PrzegladajKoszyk(koszykProxy).execute(); }
-            else if(Objects.equals(wybor, "faktura")){ new StworzFakture(koszykProxy).execute(); }
-            else if(Objects.equals(wybor, "zamknij")){program = false;}
+            if (Objects.equals(wybor, "zarzadzaj")) {
+                new ZarzadzajKoszykiem(koszykProxy).execute();
+            } else if (Objects.equals(wybor, "koszyk")) {
+                new PrzegladajKoszyk(koszykProxy).execute();
+            } else if (Objects.equals(wybor, "faktura")) {
+                new StworzFakture(koszykProxy).execute();
+            } else if (Objects.equals(wybor, "zamknij")) {
+                program = false;
+            }
         }
 
     }
