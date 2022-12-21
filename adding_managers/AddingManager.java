@@ -23,11 +23,10 @@ public abstract class AddingManager {
         showInformation();
         String option = getOption();
         while (option != null) {
-            if (createFurniture(option)) {
-                addFurniture();
-                showInstruction();
-                option = getOption();
-            }
+            createFurniture(option);
+            addFurniture();
+            showInstruction();
+            option = getOption();
         }
 
     }
