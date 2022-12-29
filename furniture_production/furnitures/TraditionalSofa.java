@@ -56,6 +56,11 @@ public class TraditionalSofa implements Sofa {
     }
 
     @Override
+    public void newsletter(){
+        System.out.println("W ofercie posiadamy również Traditional Sofa");
+    }
+
+    @Override
     public HashSet<String> getPossibleStyles() {
         return possibleStyle;
     }
