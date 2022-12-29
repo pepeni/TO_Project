@@ -6,29 +6,29 @@ import furniture_production.furnitures.Table;
 
 import java.util.ArrayList;
 
-public class PrzegladajKoszyk implements Command{
+public class PrzegladajKoszyk implements Command {
 
-    KoszykProxy koszyk;
+    KoszykProxy basket;
 
-    public PrzegladajKoszyk(KoszykProxy koszyk){
-        this.koszyk = koszyk;
-    };
+    public PrzegladajKoszyk(KoszykProxy basket) {
+        this.basket = basket;
+    }
 
     @Override
     public void execute() {
 
-        ArrayList<Sofa> sofy = koszyk.getSofy();
-        ArrayList<Table> stoly = koszyk.getStoly();
+        ArrayList<Sofa> sofas = basket.getSofy();
+        ArrayList<Table> tables = basket.getStoly();
 
         int id = 1;
 
-        for(Sofa sofa: sofy){
+        for (Sofa sofa : sofas) {
             System.out.println(id + " " + sofa.getInformationAboutSofa());
-            id+=1;
+            id += 1;
         }
-        for(Table table: stoly){
+        for (Table table : tables) {
             System.out.println(id + " " + table.getInformationAboutTable());
-            id+=1;
+            id += 1;
         }
     }
 }

@@ -1,8 +1,6 @@
 package database;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import furniture_production.furnitures.Sofa;
 import furniture_production.furnitures.Table;
@@ -10,8 +8,8 @@ import furniture_production.furnitures.Table;
 
 public class Koszyk implements KoszykInterface {
     private static Koszyk instance;
-    private ArrayList<Table> koszykStoly;
-    private ArrayList<Sofa> koszykSofy;
+    private final ArrayList<Table> koszykStoly;
+    private final ArrayList<Sofa> koszykSofy;
 
     private Koszyk() {
         // initialize database

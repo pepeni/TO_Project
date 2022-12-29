@@ -59,7 +59,7 @@ public class ModernTable implements Table {
     }
 
     @Override
-    public void newsletter(){
+    public void newsletter() {
         System.out.println("W ofercie posiadamy również Modern Table");
     }
 
@@ -83,7 +83,7 @@ public class ModernTable implements Table {
     }
 
     @Override
-    public String getInformationForFacture(){
+    public String getInformationForFacture() {
         return "Modern Table. " + typeOfTable + ", " + style.getName() + ", " + shape;
     }
 

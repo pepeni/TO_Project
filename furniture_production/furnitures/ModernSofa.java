@@ -35,7 +35,7 @@ public class ModernSofa implements Sofa {
 
 
     @Override
-    public void newsletter(){
+    public void newsletter() {
         System.out.println("W ofercie posiadamy również Modern Sofa");
     }
 

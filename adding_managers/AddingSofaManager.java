@@ -13,8 +13,7 @@ public class AddingSofaManager extends AddingManager {
     }
 
     @Override
-    public void showInformation()
-    {
+    public void showInformation() {
         System.out.println("\nsofy:\n");
         modernFurnituresFactory.showSofaOptions();
         traditionalFurnituresFactory.showSofaOptions();
@@ -23,38 +22,33 @@ public class AddingSofaManager extends AddingManager {
     }
 
     @Override
-    public boolean createFurniture(String option) {
+    public void createFurniture(String option) {
 
-        if (!Objects.equals(option, "Modern Sofa") && !Objects.equals(option, "Traditional Sofa"))
-            return false;
+        if (!Objects.equals(option.toLowerCase(), "modern sofa") && !Objects.equals(option.toLowerCase(), "traditional sofa"))
+            return;
         System.out.println("Podaj iluosobowa jest:");
-        int number =0;
+        int number = 0;
         try {
             number = Integer.parseInt(myObj.nextLine());
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Podano bledna liczbe");
-            return false;
+            return;
         }
         System.out.println("Podaj styl:");
-        String style=myObj.nextLine();
-        try
-        {
-            if(option.equals("Modern Sofa"))
-                this.sofa=modernFurnituresFactory.createSofa(style, number);
-            if(option.equals("Traditional Sofa"))
-                this.sofa=traditionalFurnituresFactory.createSofa(style, number);
-        }catch (Exception e)
-        {
+        String style = myObj.nextLine();
+        try {
+            if (option.equals("modern sofa"))
+                this.sofa = modernFurnituresFactory.createSofa(style, number);
+            if (option.equals("traditional sofa"))
+                this.sofa = traditionalFurnituresFactory.createSofa(style, number);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return;
         }
         System.out.println("Twój produkt:");
-        System.out.println( sofa.getInformationAboutSofa());
+        System.out.println(sofa.getInformationAboutSofa());
         System.out.println(sofa.getDetailsAboutStyle());
         System.out.println("Dodano pomyślnie");
-        return true;
     }
 
     @Override

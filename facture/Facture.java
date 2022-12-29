@@ -72,7 +72,7 @@ public class Facture {
         }
         System.out.println(new String(new char[100]).replace("\0", "-"));
         System.out.printf("|%-55s   %40s|%n", "", "RAZEM:" + totalPrice);
-        System.out.printf("|%-55s   %40s|%n", "Do zapłaty: " +totalPrice +" PLN", "");
+        System.out.printf("|%-55s   %40s|%n", "Do zapłaty: " + totalPrice + " PLN", "");
         System.out.println(new String(new char[100]).replace("\0", "-"));
     }
 

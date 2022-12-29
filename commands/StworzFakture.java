@@ -19,15 +19,15 @@ import static java.lang.System.exit;
 
 public class StworzFakture implements Command {
 
-    KoszykProxy koszyk;
+    KoszykProxy basket;
     CollectObserver collectObserver = new CollectObserver();
     ModernSofa modernSofa = new ModernSofa();
     TraditionalSofa traditionalSofa = new TraditionalSofa();
     ModernTable modernTable = new ModernTable();
     TraditionalTable traditionalTable = new TraditionalTable();
 
-    public StworzFakture(KoszykProxy koszyk) {
-        this.koszyk = koszyk;
+    public StworzFakture(KoszykProxy basket) {
+        this.basket = basket;
     }
 
 
@@ -37,26 +37,27 @@ public class StworzFakture implements Command {
         Scanner myObj = new Scanner(System.in);
 
         System.out.println("Zanim wygenerujesz fakture:");
+        System.out.println("Sprawdź czy na pewno wszystko jest dobrze.\n");
 
-        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof ModernSofa)){
+        if (basket.getSofy().stream().noneMatch(o -> o instanceof ModernSofa)) {
 
             collectObserver.subscribe(modernSofa);
         } else {
             collectObserver.unsubscribe(modernSofa);
         }
-        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof TraditionalSofa)){
+        if (basket.getSofy().stream().noneMatch(o -> o instanceof TraditionalSofa)) {
 
             collectObserver.subscribe(traditionalSofa);
         } else {
             collectObserver.unsubscribe(traditionalSofa);
         }
-        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof ModernTable)){
+        if (basket.getStoly().stream().noneMatch(o -> o instanceof ModernTable)) {
 
             collectObserver.subscribe(modernTable);
         } else {
             collectObserver.unsubscribe(modernTable);
         }
-        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof TraditionalTable)){
+        if (basket.getStoly().stream().noneMatch(o -> o instanceof TraditionalTable)) {
 
             collectObserver.subscribe(traditionalTable);
         } else {
@@ -67,13 +68,13 @@ public class StworzFakture implements Command {
             System.out.println("\nKomendy:\n\tprywatna - stworz fakture dla osoby prywatnej\n\tfirma - stworz fakture dla firmy\n\twyjdz - konczy tryb faktury");
             String wybor = myObj.nextLine();
 
-            if (Objects.equals(wybor, "wyjdz")) {
+            if (Objects.equals(wybor.toLowerCase(), "wyjdz")) {
                 facture = false;
             }
-            if (Objects.equals(wybor, "prywatna")) {
+            if (Objects.equals(wybor.toLowerCase(), "prywatna")) {
                 makePersonalFacture();
             }
-            if (Objects.equals(wybor, "firma")) {
+            if (Objects.equals(wybor.toLowerCase(), "firma")) {
                 makeCompanyFacture();
             }
         }
@@ -81,7 +82,7 @@ public class StworzFakture implements Command {
 
     public void makePersonalFacture() {
         Director director = new Director();
-        FactureBuilder builder = new FactureBuilder(koszyk.getStoly(), koszyk.getSofy());
+        FactureBuilder builder = new FactureBuilder(basket.getStoly(), basket.getSofy());
         Scanner myObj = new Scanner(System.in);
         System.out.println("Podaj Imię i Nazwisko:");
         String name = myObj.nextLine();
@@ -98,7 +99,7 @@ public class StworzFakture implements Command {
     public void makeCompanyFacture() {
         boolean correctNip = true;
         Director director = new Director();
-        FactureBuilder builder = new FactureBuilder(koszyk.getStoly(), koszyk.getSofy());
+        FactureBuilder builder = new FactureBuilder(basket.getStoly(), basket.getSofy());
         Scanner myObj = new Scanner(System.in);
         System.out.println("Podaj nazwe firmy:");
         String name = myObj.nextLine();
@@ -112,7 +113,7 @@ public class StworzFakture implements Command {
             if (Pattern.matches("\\d{10}", NIP)) {
                 CompanyInformation companyInformation = CompanyInformation.getInstance(NIP);
                 director.constructCompanyFacture(builder, name, companyInformation, address, postCode);
-                                correctNip = false;
+                correctNip = false;
             } else {
                 System.out.println("Podałeś niepoprawny numer NIP.");
             }

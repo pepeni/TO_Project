@@ -1,17 +1,17 @@
 package adding_managers;
 
 import database.KoszykProxy;
-import furniture_production.factories.ModernFurnituresFactory;
-import furniture_production.factories.TraditionalFurnituresFactory;
+import furniture_production.factories.ModernFurnitureFactory;
+import furniture_production.factories.TraditionalFurnitureFactory;
 
 import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class AddingManager {
-    boolean dodawanie;
+    boolean adding;
     Scanner myObj;
-    ModernFurnituresFactory modernFurnituresFactory;
-    TraditionalFurnituresFactory traditionalFurnituresFactory;
+    ModernFurnitureFactory modernFurnituresFactory;
+    TraditionalFurnitureFactory traditionalFurnituresFactory;
     KoszykProxy basket;
 
     public AddingManager(KoszykProxy basket) {
@@ -32,10 +32,10 @@ public abstract class AddingManager {
     }
 
     public void setVariables() {
-        dodawanie = true;
+        adding = true;
         myObj = new Scanner(System.in);
-        modernFurnituresFactory = new ModernFurnituresFactory();
-        traditionalFurnituresFactory = new TraditionalFurnituresFactory();
+        modernFurnituresFactory = new ModernFurnitureFactory();
+        traditionalFurnituresFactory = new TraditionalFurnitureFactory();
 
     }
 
@@ -47,15 +47,13 @@ public abstract class AddingManager {
 
     public String getOption() {
         String choice = myObj.nextLine();
-        if (Objects.equals(choice, "wyjdz")) {
+        if (Objects.equals(choice.toLowerCase(), "wyjdz")) {
             return null;
         } else return choice;
 
     }
 
-    abstract public boolean createFurniture(String option);
+    abstract public void createFurniture(String option);
 
     abstract public void addFurniture();
-
-
 }

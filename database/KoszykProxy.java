@@ -1,13 +1,10 @@
 package database;
 
-import database.Koszyk;
-import database.KoszykInterface;
 import furniture_production.furnitures.Sofa;
 import furniture_production.furnitures.Table;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+
 
 public class KoszykProxy implements KoszykInterface {
     private Koszyk db;
@@ -18,14 +15,14 @@ public class KoszykProxy implements KoszykInterface {
 
     @Override
     public void add_sofa(Sofa value) {
-        if(value!= null){
+        if (value != null) {
             db.add_sofa(value);
         }
     }
 
     @Override
     public void add_stol(Table value) {
-        if(value!= null){
+        if (value != null) {
             db.add_stol(value);
         }
     }

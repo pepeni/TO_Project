@@ -56,7 +56,7 @@ public class TraditionalSofa implements Sofa {
     }
 
     @Override
-    public void newsletter(){
+    public void newsletter() {
         System.out.println("W ofercie posiadamy również Traditional Sofa");
     }
 
@@ -76,7 +76,7 @@ public class TraditionalSofa implements Sofa {
     }
 
     @Override
-    public String getInformationForFacture(){
+    public String getInformationForFacture() {
         return "Traditional Sofa. " + style.getName() + ", Seats: " + numberOfSeats + ", Sleeper Sofa: " + sleeperSofa;
     }
 }

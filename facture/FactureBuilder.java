@@ -8,13 +8,13 @@ import java.util.ArrayList;
 public class FactureBuilder implements Builder {
     private Facture facture;
 
-    public FactureBuilder(ArrayList<Table> table,ArrayList<Sofa> sofa) {
-        this.reset(table,sofa);
+    public FactureBuilder(ArrayList<Table> table, ArrayList<Sofa> sofa) {
+        this.reset(table, sofa);
     }
 
     @Override
     public void reset(ArrayList<Table> table, ArrayList<Sofa> sofa) {
-        this.facture = new Facture(table,sofa);
+        this.facture = new Facture(table, sofa);
     }
 
     @Override
@@ -28,17 +28,17 @@ public class FactureBuilder implements Builder {
     }
 
     @Override
-    public void setAddress(String address){
+    public void setAddress(String address) {
         facture.setCustomerAddress(address);
     }
 
     @Override
-    public void setPostCode(String postCode){
+    public void setPostCode(String postCode) {
         facture.setCustomerPostCode(postCode);
     }
 
     @Override
-    public Facture getFacture(){
+    public Facture getFacture() {
         return this.facture;
     }
 }

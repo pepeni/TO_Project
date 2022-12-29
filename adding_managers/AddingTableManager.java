@@ -13,8 +13,7 @@ public class AddingTableManager extends AddingManager {
     }
 
     @Override
-    public void showInformation()
-    {
+    public void showInformation() {
         System.out.println("\nstoly:\n");
         modernFurnituresFactory.showTableOptions();
         traditionalFurnituresFactory.showTableOptions();
@@ -23,31 +22,28 @@ public class AddingTableManager extends AddingManager {
     }
 
     @Override
-    public boolean createFurniture(String option) {
-        if (!Objects.equals(option, "Modern Table")&& !Objects.equals(option, "Traditional Table"))
-            return false;
+    public void createFurniture(String option) {
+        if (!Objects.equals(option.toLowerCase(), "modern table") && !Objects.equals(option.toLowerCase(), "traditional table"))
+            return;
         System.out.println("Podaj styl:");
-        String style=myObj.nextLine();
+        String style = myObj.nextLine();
         System.out.println("Podaj rodzaj:");
-        String type=myObj.nextLine();
+        String type = myObj.nextLine();
         System.out.println("Podaj ksztalt:");
-        String shape=myObj.nextLine();
+        String shape = myObj.nextLine();
         try {
-            if (option.equals("Modern Table"))
+            if (option.equals("modern table"))
                 table = modernFurnituresFactory.createTable(style, type, shape);
-            if (option.equals("Traditional Table"))
+            if (option.equals("traditional table"))
                 table = traditionalFurnituresFactory.createTable(style, type, shape);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return;
         }
         System.out.println("Twoj produkt:");
         System.out.println(table.getInformationAboutTable());
         System.out.println(table.getDetailsAboutStyle());
         System.out.println("Dodano pomyślnie");
-        return true;
 
     }
 
