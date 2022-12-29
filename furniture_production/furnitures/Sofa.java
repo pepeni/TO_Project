@@ -14,4 +14,5 @@ public interface Sofa {
     String  getDetailsAboutStyle();
     String getInformationAboutSofa();
     double getPrice() ;
+    void newsletter();
 }

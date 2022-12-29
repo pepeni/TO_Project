@@ -30,6 +30,11 @@ public class TraditionalTable implements Table {
     }
 
     @Override
+    public void newsletter(){
+        System.out.println("W ofercie posiadamy również Traditional Table");
+    }
+
+    @Override
     public void setStyle(Style style) {
         if (possibleStyle.contains(style.getName()))
             this.style = style;

@@ -35,6 +35,11 @@ public class ModernSofa implements Sofa {
 
 
     @Override
+    public void newsletter(){
+        System.out.println("W ofercie posiadamy również Modern Sofa");
+    }
+
+    @Override
     public void showInformationAboutSofa() {
         System.out.println("name:   Modern Sofa");
         System.out.println("Possible number of seats");

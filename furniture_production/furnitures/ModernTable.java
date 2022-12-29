@@ -59,6 +59,11 @@ public class ModernTable implements Table {
     }
 
     @Override
+    public void newsletter(){
+        System.out.println("W ofercie posiadamy również Modern Table");
+    }
+
+    @Override
     public HashSet<String> getPossibleStyles() {
         return possibleStyle;
     }

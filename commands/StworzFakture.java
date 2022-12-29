@@ -5,6 +5,11 @@ import facture.CompanyInformation;
 import facture.Director;
 import facture.Facture;
 import facture.FactureBuilder;
+import furniture_production.furnitures.ModernSofa;
+import furniture_production.furnitures.ModernTable;
+import furniture_production.furnitures.TraditionalSofa;
+import furniture_production.furnitures.TraditionalTable;
+import subscription.CollectObserver;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -15,6 +20,11 @@ import static java.lang.System.exit;
 public class StworzFakture implements Command {
 
     KoszykProxy koszyk;
+    CollectObserver collectObserver = new CollectObserver();
+    ModernSofa modernSofa = new ModernSofa();
+    TraditionalSofa traditionalSofa = new TraditionalSofa();
+    ModernTable modernTable = new ModernTable();
+    TraditionalTable traditionalTable = new TraditionalTable();
 
     public StworzFakture(KoszykProxy koszyk) {
         this.koszyk = koszyk;
@@ -25,6 +35,34 @@ public class StworzFakture implements Command {
     public void execute() {
         boolean facture = true;
         Scanner myObj = new Scanner(System.in);
+
+        System.out.println("Zanim wygenerujesz fakture:");
+
+        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof ModernSofa)){
+
+            collectObserver.subscribe(modernSofa);
+        } else {
+            collectObserver.unsubscribe(modernSofa);
+        }
+        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof TraditionalSofa)){
+
+            collectObserver.subscribe(traditionalSofa);
+        } else {
+            collectObserver.unsubscribe(traditionalSofa);
+        }
+        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof ModernTable)){
+
+            collectObserver.subscribe(modernTable);
+        } else {
+            collectObserver.unsubscribe(modernTable);
+        }
+        if(koszyk.getSofy().stream().noneMatch(o -> o instanceof TraditionalTable)){
+
+            collectObserver.subscribe(traditionalTable);
+        } else {
+            collectObserver.unsubscribe(traditionalTable);
+        }
+        collectObserver.notifyObservers();
         while (facture) {
             System.out.println("\nKomendy:\n\tprywatna - stworz fakture dla osoby prywatnej\n\tfirma - stworz fakture dla firmy\n\twyjdz - konczy tryb faktury");
             String wybor = myObj.nextLine();

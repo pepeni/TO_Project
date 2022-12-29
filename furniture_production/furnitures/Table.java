@@ -15,5 +15,6 @@ public interface  Table {
     String getInformationForFacture();
     String  getDetailsAboutStyle();
     double getPrice() ;
+    void newsletter();
 
 }

@@ -3,6 +3,11 @@ import commands.StworzFakture;
 import commands.ZarzadzajKoszykiem;
 import database.Koszyk;
 import database.KoszykProxy;
+import furniture_production.furnitures.ModernSofa;
+import furniture_production.furnitures.ModernTable;
+import furniture_production.furnitures.TraditionalSofa;
+import furniture_production.furnitures.TraditionalTable;
+import subscription.CollectObserver;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -23,8 +28,6 @@ public class Program {
 
             System.out.println("\nCo chcesz zrobić?");
             String wybor = myObj.nextLine();
-
-
             if (Objects.equals(wybor, "zarzadzaj")) {
                 new ZarzadzajKoszykiem(koszykProxy).execute();
             } else if (Objects.equals(wybor, "koszyk")) {
