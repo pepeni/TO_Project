@@ -1,6 +1,6 @@
 package adding_managers;
 
-import database.KoszykProxy;
+import database.BasketProxy;
 import furniture_production.factories.ModernFurnitureFactory;
 import furniture_production.factories.TraditionalFurnitureFactory;
 
@@ -10,11 +10,11 @@ import java.util.Scanner;
 public abstract class AddingManager {
     boolean adding;
     Scanner myObj;
-    ModernFurnitureFactory modernFurnituresFactory;
-    TraditionalFurnitureFactory traditionalFurnituresFactory;
-    KoszykProxy basket;
+    ModernFurnitureFactory modernFurnitureFactory;
+    TraditionalFurnitureFactory traditionalFurnitureFactory;
+    BasketProxy basket;
 
-    public AddingManager(KoszykProxy basket) {
+    public AddingManager(BasketProxy basket) {
         this.basket = basket;
     }
 
@@ -34,8 +34,8 @@ public abstract class AddingManager {
     public void setVariables() {
         adding = true;
         myObj = new Scanner(System.in);
-        modernFurnituresFactory = new ModernFurnitureFactory();
-        traditionalFurnituresFactory = new TraditionalFurnitureFactory();
+        modernFurnitureFactory = new ModernFurnitureFactory();
+        traditionalFurnitureFactory = new TraditionalFurnitureFactory();
 
     }
 

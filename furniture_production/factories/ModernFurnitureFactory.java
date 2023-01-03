@@ -5,7 +5,6 @@ import furniture_production.styles.FrenchStyle;
 import furniture_production.styles.GreekStyle;
 import furniture_production.styles.Style;
 
-import java.util.Locale;
 import java.util.Objects;
 
 

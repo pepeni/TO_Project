@@ -2,7 +2,7 @@ package commands;
 
 import adding_managers.AddingSofaManager;
 import adding_managers.AddingTableManager;
-import database.KoszykProxy;
+import database.BasketProxy;
 import furniture_production.furnitures.Sofa;
 import furniture_production.furnitures.Table;
 
@@ -10,46 +10,46 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ZarzadzajKoszykiem implements Command {
+public class ManageBasket implements Command {
 
-    KoszykProxy basket;
+    BasketProxy basket;
 
-    public ZarzadzajKoszykiem(KoszykProxy basket) {
+    public ManageBasket(BasketProxy basket) {
         this.basket = basket;
     }
 
     @Override
     public void execute() {
-        boolean zarzadzanie = true;
+        boolean manage = true;
         Scanner myObj = new Scanner(System.in);
-        while (zarzadzanie) {
+        while (manage) {
 
 
             System.out.println("\nKomendy:\n\tdodaj do koszyka - przejdz do trybu wyboru mebli\n\tusun z koszyka - przejdz do trybu usuwania mebli z koszyka\n\twyjdz - konczy tryb zarzadzania koszykiem");
-            String wybor = myObj.nextLine();
+            String pick = myObj.nextLine();
 
-            if (Objects.equals(wybor.toLowerCase(), "wyjdz")) {
-                zarzadzanie = false;
+            if (Objects.equals(pick.toLowerCase(), "wyjdz")) {
+                manage = false;
             }
-            if (Objects.equals(wybor.toLowerCase(), "dodaj do koszyka")) {
-                dodawania_do_koszyka();
+            if (Objects.equals(pick.toLowerCase(), "dodaj do koszyka")) {
+                addToBasket();
             }
-            if (Objects.equals(wybor.toLowerCase(), "usun z koszyka")) {
-                usuwanie_z_koszyka();
+            if (Objects.equals(pick.toLowerCase(), "usun z koszyka")) {
+                DeleteFromBasket();
             }
         }
     }
 
-    public void dodawania_do_koszyka() {
-        boolean dodawanie = true;
+    public void addToBasket() {
+        boolean adding = true;
         Scanner myObj = new Scanner(System.in);
         System.out.println("\nCo chcesz wybierać?");
 
-        while (dodawanie) {
+        while (adding) {
             System.out.println("\nsofy - przejdź do wyboru sofy\nstoly - przedź do wyboru stołów\nwyjdz - wyjdź");
             String wybor = myObj.nextLine();
             if (Objects.equals(wybor.toLowerCase(), "wyjdz")) {
-                dodawanie = false;
+                adding = false;
             }
             if (Objects.equals(wybor.toLowerCase(), "sofy")) {
                 AddingSofaManager addingSofaManager = new AddingSofaManager(basket);
@@ -64,15 +64,15 @@ public class ZarzadzajKoszykiem implements Command {
     }
 
 
-    public void usuwanie_z_koszyka() {
-        ArrayList<Sofa> sofas = basket.getSofy();
-        ArrayList<Table> tables = basket.getStoly();
+    public void DeleteFromBasket() {
+        ArrayList<Sofa> sofas = basket.getSofas();
+        ArrayList<Table> tables = basket.getTables();
 
-        boolean wyrzucanie = true;
+        boolean deleteItem = true;
         Scanner myObj = new Scanner(System.in);
 
 
-        while (wyrzucanie) {
+        while (deleteItem) {
             System.out.println("\n\nWpisz poprawnie indeks pezedmiotu, który chcesz usunąć z koszyka\nAby wyjść wpisz: 0\n");
             int id = 1;
 
@@ -85,14 +85,14 @@ public class ZarzadzajKoszykiem implements Command {
                 id += 1;
             }
 
-            int wybor = Integer.parseInt(myObj.nextLine());
-            if (Objects.equals(wybor, 0)) {
-                wyrzucanie = false;
-            } else if (wybor - 1 < sofas.size()) {
-                basket.deleteSofy(wybor - 1);
+            int pick = Integer.parseInt(myObj.nextLine());
+            if (Objects.equals(pick, 0)) {
+                deleteItem = false;
+            } else if (pick - 1 < sofas.size()) {
+                basket.deleteSofas(pick - 1);
                 System.out.println("\nWyrzucono pomyślnie :)");
-            } else if (wybor - sofas.size() - 1 < tables.size()) {
-                basket.deleteStoly(wybor - sofas.size() - 1);
+            } else if (pick - sofas.size() - 1 < tables.size()) {
+                basket.deleteTables(pick - sofas.size() - 1);
                 System.out.println("\nWyrzucono pomyślnie :)");
             } else {
                 System.out.println("Wpisano zły indeks");

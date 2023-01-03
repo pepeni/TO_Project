@@ -1,6 +1,6 @@
 package commands;
 
-import database.KoszykProxy;
+import database.BasketProxy;
 import facture.CompanyInformation;
 import facture.Director;
 import facture.Facture;
@@ -17,16 +17,16 @@ import java.util.regex.Pattern;
 
 import static java.lang.System.exit;
 
-public class StworzFakture implements Command {
+public class CreateFacture implements Command {
 
-    KoszykProxy basket;
+    BasketProxy basket;
     CollectObserver collectObserver = new CollectObserver();
     ModernSofa modernSofa = new ModernSofa();
     TraditionalSofa traditionalSofa = new TraditionalSofa();
     ModernTable modernTable = new ModernTable();
     TraditionalTable traditionalTable = new TraditionalTable();
 
-    public StworzFakture(KoszykProxy basket) {
+    public CreateFacture(BasketProxy basket) {
         this.basket = basket;
     }
 
@@ -39,25 +39,25 @@ public class StworzFakture implements Command {
         System.out.println("Zanim wygenerujesz fakture:");
         System.out.println("Sprawdź czy na pewno wszystko jest dobrze.\n");
 
-        if (basket.getSofy().stream().noneMatch(o -> o instanceof ModernSofa)) {
+        if (basket.getSofas().stream().noneMatch(o -> o instanceof ModernSofa)) {
 
             collectObserver.subscribe(modernSofa);
         } else {
             collectObserver.unsubscribe(modernSofa);
         }
-        if (basket.getSofy().stream().noneMatch(o -> o instanceof TraditionalSofa)) {
+        if (basket.getSofas().stream().noneMatch(o -> o instanceof TraditionalSofa)) {
 
             collectObserver.subscribe(traditionalSofa);
         } else {
             collectObserver.unsubscribe(traditionalSofa);
         }
-        if (basket.getStoly().stream().noneMatch(o -> o instanceof ModernTable)) {
+        if (basket.getTables().stream().noneMatch(o -> o instanceof ModernTable)) {
 
             collectObserver.subscribe(modernTable);
         } else {
             collectObserver.unsubscribe(modernTable);
         }
-        if (basket.getStoly().stream().noneMatch(o -> o instanceof TraditionalTable)) {
+        if (basket.getTables().stream().noneMatch(o -> o instanceof TraditionalTable)) {
 
             collectObserver.subscribe(traditionalTable);
         } else {
@@ -82,7 +82,7 @@ public class StworzFakture implements Command {
 
     public void makePersonalFacture() {
         Director director = new Director();
-        FactureBuilder builder = new FactureBuilder(basket.getStoly(), basket.getSofy());
+        FactureBuilder builder = new FactureBuilder(basket.getTables(), basket.getSofas());
         Scanner myObj = new Scanner(System.in);
         System.out.println("Podaj Imię i Nazwisko:");
         String name = myObj.nextLine();
@@ -99,7 +99,7 @@ public class StworzFakture implements Command {
     public void makeCompanyFacture() {
         boolean correctNip = true;
         Director director = new Director();
-        FactureBuilder builder = new FactureBuilder(basket.getStoly(), basket.getSofy());
+        FactureBuilder builder = new FactureBuilder(basket.getTables(), basket.getSofas());
         Scanner myObj = new Scanner(System.in);
         System.out.println("Podaj nazwe firmy:");
         String name = myObj.nextLine();

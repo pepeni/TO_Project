@@ -1,6 +1,6 @@
 package adding_managers;
 
-import database.KoszykProxy;
+import database.BasketProxy;
 import furniture_production.furnitures.Sofa;
 
 import java.util.Objects;
@@ -8,15 +8,15 @@ import java.util.Objects;
 public class AddingSofaManager extends AddingManager {
     Sofa sofa;
 
-    public AddingSofaManager(KoszykProxy basket) {
+    public AddingSofaManager(BasketProxy basket) {
         super(basket);
     }
 
     @Override
     public void showInformation() {
         System.out.println("\nsofy:\n");
-        modernFurnituresFactory.showSofaOptions();
-        traditionalFurnituresFactory.showSofaOptions();
+        modernFurnitureFactory.showSofaOptions();
+        traditionalFurnitureFactory.showSofaOptions();
         showInstruction();
 
     }
@@ -38,9 +38,9 @@ public class AddingSofaManager extends AddingManager {
         String style = myObj.nextLine();
         try {
             if (option.equals("modern sofa"))
-                this.sofa = modernFurnituresFactory.createSofa(style, number);
+                this.sofa = modernFurnitureFactory.createSofa(style, number);
             if (option.equals("traditional sofa"))
-                this.sofa = traditionalFurnituresFactory.createSofa(style, number);
+                this.sofa = traditionalFurnitureFactory.createSofa(style, number);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return;
@@ -53,6 +53,6 @@ public class AddingSofaManager extends AddingManager {
 
     @Override
     public void addFurniture() {
-        basket.add_sofa(sofa);
+        basket.addSofa(sofa);
     }
 }

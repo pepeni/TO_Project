@@ -1,24 +1,24 @@
 package commands;
 
-import database.KoszykProxy;
+import database.BasketProxy;
 import furniture_production.furnitures.Sofa;
 import furniture_production.furnitures.Table;
 
 import java.util.ArrayList;
 
-public class PrzegladajKoszyk implements Command {
+public class ShowBasket implements Command {
 
-    KoszykProxy basket;
+    BasketProxy basket;
 
-    public PrzegladajKoszyk(KoszykProxy basket) {
+    public ShowBasket(BasketProxy basket) {
         this.basket = basket;
     }
 
     @Override
     public void execute() {
 
-        ArrayList<Sofa> sofas = basket.getSofy();
-        ArrayList<Table> tables = basket.getStoly();
+        ArrayList<Sofa> sofas = basket.getSofas();
+        ArrayList<Table> tables = basket.getTables();
 
         int id = 1;
 
