@@ -46,14 +46,14 @@ public class ModernTable implements Table {
     }
 
     public void showInformationAboutTable() {
-        System.out.println("name:   Modern Table");
-        System.out.println("Shapes:");
+        System.out.println("Nazwa:   Modern Table");
+        System.out.println("Ksztalt:");
         possibleShapesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
-        System.out.println("Types:");
+        System.out.println("Rodzaj:");
         possibleTypesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
-        System.out.println("Possible styles:");
+        System.out.println("Mozliwe style:");
         possibleStyle.forEach(p -> System.out.print(p + ", "));
         System.out.println();
     }
@@ -79,7 +79,7 @@ public class ModernTable implements Table {
     }
 
     public String getInformationAboutTable() {
-        return "Modern Table: " + "    price: " + price + "     type of table: " + typeOfTable + "     style: " + style.getName() + "     shape: " + shape;
+        return "Modern Table: " +  "    cena: " + price + "     rodzaj: " + typeOfTable + "     styl: " + style.getName() + "     ksztalt: " + shape;
     }
 
     @Override

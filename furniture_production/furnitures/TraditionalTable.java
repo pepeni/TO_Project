@@ -51,14 +51,14 @@ public class TraditionalTable implements Table {
     }
 
     public void showInformationAboutTable() {
-        System.out.println("name:   Traditional Table");
-        System.out.println("Shapes:");
+        System.out.println("Nazwa:   Traditional Table");
+        System.out.println("Ksztalt:");
         possibleShapesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
-        System.out.println("Types:");
+        System.out.println("Rodzaj:");
         possibleTypesOfTable.forEach(p -> System.out.print(p + ", "));
         System.out.println();
-        System.out.println("Possible styles:");
+        System.out.println("Mozliwe style:");
         possibleStyle.forEach(p -> System.out.print(p + ", "));
         System.out.println();
 
@@ -81,7 +81,7 @@ public class TraditionalTable implements Table {
 
     @Override
     public String getInformationAboutTable() {
-        return "Traditional Table: " + "    price: " + price + "     type of table: " + typeOfTable + "     style: " + style.getName() + "     shape: " + shape;
+        return "Traditional Table: " + "    cena: " + price + "     rodzaj: " + typeOfTable + "     styl: " + style.getName() + "     ksztalt: " + shape;
     }
 
     @Override

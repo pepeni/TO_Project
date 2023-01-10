@@ -37,18 +37,17 @@ public class AddingSofaManager extends AddingManager {
         System.out.println("Podaj styl:");
         String style = myObj.nextLine();
         try {
-            if (option.equals("modern sofa"))
+            if (option.equalsIgnoreCase("modern sofa"))
                 this.sofa = modernFurnitureFactory.createSofa(style, number);
-            if (option.equals("traditional sofa"))
+            if (option.equalsIgnoreCase("traditional sofa"))
                 this.sofa = traditionalFurnitureFactory.createSofa(style, number);
+            System.out.println("Twój produkt:");
+            System.out.println(sofa.getInformationAboutSofa());
+            System.out.println(sofa.getDetailsAboutStyle());
+            System.out.println("Dodano pomyślnie");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return;
+            System.out.println("Nie udało się dodać");
         }
-        System.out.println("Twój produkt:");
-        System.out.println(sofa.getInformationAboutSofa());
-        System.out.println(sofa.getDetailsAboutStyle());
-        System.out.println("Dodano pomyślnie");
     }
 
     @Override

@@ -32,18 +32,18 @@ public class AddingTableManager extends AddingManager {
         System.out.println("Podaj ksztalt:");
         String shape = myObj.nextLine();
         try {
-            if (option.equals("modern table"))
+            if (option.equalsIgnoreCase("modern table"))
                 table = modernFurnitureFactory.createTable(style, type, shape);
-            if (option.equals("traditional table"))
+            if (option.equalsIgnoreCase("traditional table"))
                 table = traditionalFurnitureFactory.createTable(style, type, shape);
+            System.out.println("Twoj produkt:");
+            System.out.println(table.getInformationAboutTable());
+            System.out.println(table.getDetailsAboutStyle());
+            System.out.println("Dodano pomyślnie");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return;
+            System.out.println("Nie udało się dodać");
+
         }
-        System.out.println("Twoj produkt:");
-        System.out.println(table.getInformationAboutTable());
-        System.out.println(table.getDetailsAboutStyle());
-        System.out.println("Dodano pomyślnie");
 
     }
 

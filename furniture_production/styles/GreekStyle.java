@@ -7,11 +7,11 @@ public class GreekStyle implements Style {
     }
 
     public String getDescriptionForSofa() {
-        return "Greek style" + "    Colors:" + " white, blue" + "    Cover:" + " white and blue strips";
+        return "Styl grecki" + "    Kolory:" + " biały, niebieski" + "    Tapicerka:" + " białe i niebieskie paski";
     }
 
     public String getDescriptionForTable() {
-        return "Greek style" + "     Colors:" + " white" + "     Material:" + " birch";
+        return "Styl grecki" + "    Kolory:" + " biały" + "     Material:" + " brzoza";
     }
 
 

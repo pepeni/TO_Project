@@ -39,20 +39,20 @@ public class TraditionalSofa implements Sofa {
 
     @Override
     public void showInformationAboutSofa() {
-        System.out.println("name:   Traditional Sofa");
-        System.out.println("Possible number of seats");
+        System.out.println("Nazwa:   Traditional Sofa");
+        System.out.println("Mozliwa ilosc siedzen:");
         possibleNumberOfSeats.forEach(p -> System.out.print(p + ", "));
         System.out.println();
-        System.out.println("SleeperSofa");
-        System.out.println(sleeperSofa ? "yes" : "no");
-        System.out.println("Possible styles");
+        System.out.println("Mozliwosc spania:");
+        System.out.println(sleeperSofa ? "tak" : "nie");
+        System.out.println("Mozliwe style:");
         possibleStyle.forEach(p -> System.out.print(p + ", "));
         System.out.println();
 
     }
 
     public String getInformationAboutSofa() {
-        return "Traditional Sofa: " + "    price: " + price + "     number of seats: " + numberOfSeats + "     style: " + style.getName() + "     sleeper sofa: " + sleeperSofa;
+        return "Traditional Sofa: " + "    cena: " + price + "     liczba siedzen: " + numberOfSeats + "     styl: " + style.getName() + "     mozliwosc spania: " + sleeperSofa;
     }
 
     @Override
