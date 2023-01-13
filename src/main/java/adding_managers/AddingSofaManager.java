@@ -54,4 +54,8 @@ public class AddingSofaManager extends AddingManager {
     public void addFurniture() {
         basket.addSofa(sofa);
     }
+
+    public void setSofa(Sofa sofa) {
+        this.sofa = sofa;
+    }
 }

@@ -56,4 +56,16 @@ public abstract class AddingManager {
     abstract public void createFurniture(String option);
 
     abstract public void addFurniture();
+
+    public void setMyObj(Scanner myObj) {
+        this.myObj = myObj;
+    }
+
+    public void setModernFurnitureFactory(ModernFurnitureFactory modernFurnitureFactory) {
+        this.modernFurnitureFactory = modernFurnitureFactory;
+    }
+
+    public void setTraditionalFurnitureFactory(TraditionalFurnitureFactory traditionalFurnitureFactory) {
+        this.traditionalFurnitureFactory = traditionalFurnitureFactory;
+    }
 }
