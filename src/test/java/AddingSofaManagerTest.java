@@ -4,10 +4,11 @@ import database.BasketProxy;
 import furniture_production.factories.ModernFurnitureFactory;
 import furniture_production.factories.TraditionalFurnitureFactory;
 import furniture_production.furnitures.Sofa;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -30,7 +31,7 @@ public class AddingSofaManagerTest {
     @Mock
     TraditionalFurnitureFactory traditionalFurnitureFactory;
     @Test
-    void createFurniture()
+    public void createFurniture()
     {
 
         String input = "2\nFrench\n";
@@ -48,6 +49,6 @@ public class AddingSofaManagerTest {
         Mockito.when(sofa.getDetailsAboutStyle()).thenReturn("");
         addingSofaManager.setSofa(sofa);
         addingSofaManager.createFurniture("modern sofa");
-      Assertions.assertEquals("Podaj iluosobowa jest:\nPodaj styl:\nTwój produkt:\nDodano pomyślnie\n", outContent.toString());
+      Assertions.assertEquals("Podaj iluosobowa jest:\nPodaj styl:\nTwój produkt:\nDodano pomyślnie\n", outContent.toString().trim());
     }
 }
