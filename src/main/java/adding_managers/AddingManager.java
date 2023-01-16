@@ -16,6 +16,9 @@ public abstract class AddingManager {
 
     public AddingManager(BasketProxy basket) {
         this.basket = basket;
+        myObj = new Scanner(System.in);
+        modernFurnitureFactory = new ModernFurnitureFactory();
+        traditionalFurnitureFactory = new TraditionalFurnitureFactory();
     }
 
     public void steps() {
@@ -33,9 +36,6 @@ public abstract class AddingManager {
 
     public void setVariables() {
         adding = true;
-        myObj = new Scanner(System.in);
-        modernFurnitureFactory = new ModernFurnitureFactory();
-        traditionalFurnitureFactory = new TraditionalFurnitureFactory();
 
     }
 

@@ -34,8 +34,10 @@ public class AddingTableManager extends AddingManager {
         try {
             if (option.equalsIgnoreCase("modern table"))
                 table = modernFurnitureFactory.createTable(style, type, shape);
-            if (option.equalsIgnoreCase("traditional table"))
+            else if (option.equalsIgnoreCase("traditional table"))
                 table = traditionalFurnitureFactory.createTable(style, type, shape);
+            else
+                throw new IllegalArgumentException();
             System.out.println("Twoj produkt:");
             System.out.println(table.getInformationAboutTable());
             System.out.println(table.getDetailsAboutStyle());
@@ -52,5 +54,7 @@ public class AddingTableManager extends AddingManager {
         basket.addTable(table);
     }
 
-
+    public void setTable(Table table) {
+        this.table = table;
+    }
 }
