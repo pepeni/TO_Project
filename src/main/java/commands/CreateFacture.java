@@ -25,6 +25,7 @@ public class CreateFacture implements Command {
     TraditionalSofa traditionalSofa = new TraditionalSofa();
     ModernTable modernTable = new ModernTable();
     TraditionalTable traditionalTable = new TraditionalTable();
+    Facture facture;
 
     public CreateFacture(BasketProxy basket) {
         this.basket = basket;
@@ -66,16 +67,18 @@ public class CreateFacture implements Command {
         collectObserver.notifyObservers();
         while (facture) {
             System.out.println("\nKomendy:\n\tprywatna - stworz fakture dla osoby prywatnej\n\tfirma - stworz fakture dla firmy\n\twyjdz - konczy tryb faktury");
-            String wybor = myObj.nextLine();
+            String choice = myObj.nextLine();
 
-            if (Objects.equals(wybor.toLowerCase(), "wyjdz")) {
+            if (Objects.equals(choice.toLowerCase(), "wyjdz")) {
                 facture = false;
             }
-            if (Objects.equals(wybor.toLowerCase(), "prywatna")) {
+            if (Objects.equals(choice.toLowerCase(), "prywatna")) {
                 makePersonalFacture();
+                exit(0);
             }
-            if (Objects.equals(wybor.toLowerCase(), "firma")) {
+            if (Objects.equals(choice.toLowerCase(), "firma")) {
                 makeCompanyFacture();
+                exit(0);
             }
         }
     }
@@ -91,9 +94,8 @@ public class CreateFacture implements Command {
         System.out.println("Podaj kod pocztowy i miasto:");
         String postCode = myObj.nextLine();
         director.constructPrivateFacture(builder, name, address, postCode);
-        Facture facture = builder.getFacture();
+        this.facture = builder.getFacture();
         facture.generateFacture();
-        exit(0);
     }
 
     public void makeCompanyFacture() {
@@ -118,8 +120,15 @@ public class CreateFacture implements Command {
                 System.out.println("Podałeś niepoprawny numer NIP.");
             }
         }
-        Facture facture = builder.getFacture();
+        this.facture = builder.getFacture();
         facture.generateFacture();
-        exit(0);
+    }
+
+    public CollectObserver getCollectObserver() {
+        return this.collectObserver;
+    }
+
+    public Facture getFacture() {
+        return this.facture;
     }
 }

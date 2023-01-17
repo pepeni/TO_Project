@@ -76,4 +76,27 @@ public class Facture {
         System.out.println(new String(new char[100]).replace("\0", "-"));
     }
 
+    public String getCustomer() {
+        return customer;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public String getCustomerPostCode() {
+        return customerPostCode;
+    }
+
+    public ArrayList<Table> getTables() {
+        return tables;
+    }
+
+    public ArrayList<Sofa> getSofas() {
+        return sofas;
+    }
+
+    public CompanyInformation getNIP() {
+        return NIP;
+    }
 }

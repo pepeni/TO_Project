@@ -39,8 +39,10 @@ public class AddingSofaManager extends AddingManager {
         try {
             if (option.equalsIgnoreCase("modern sofa"))
                 this.sofa = modernFurnitureFactory.createSofa(style, number);
-            if (option.equalsIgnoreCase("traditional sofa"))
+            else if (option.equalsIgnoreCase("traditional sofa"))
                 this.sofa = traditionalFurnitureFactory.createSofa(style, number);
+            else
+                throw new IllegalArgumentException();
             System.out.println("Twój produkt:");
             System.out.println(sofa.getInformationAboutSofa());
             System.out.println(sofa.getDetailsAboutStyle());
@@ -53,5 +55,9 @@ public class AddingSofaManager extends AddingManager {
     @Override
     public void addFurniture() {
         basket.addSofa(sofa);
+    }
+
+    public void setSofa(Sofa sofa) {
+        this.sofa = sofa;
     }
 }
