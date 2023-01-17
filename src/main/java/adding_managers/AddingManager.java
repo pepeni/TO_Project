@@ -25,11 +25,9 @@ public abstract class AddingManager {
         setVariables();
         showInformation();
         String option = getOption();
-        while (option != null) {
+        if (option != null) {
             createFurniture(option);
             addFurniture();
-            showInstruction();
-            option = getOption();
         }
 
     }

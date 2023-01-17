@@ -85,7 +85,21 @@ public class ManageBasket implements Command {
                 id += 1;
             }
 
-            int pick = Integer.parseInt(myObj.nextLine());
+            int pick;
+
+            while(true) {
+                try {
+                    pick = Integer.parseInt(myObj.nextLine());
+                } catch (Exception e) {
+                    System.out.println("Podano bledna liczbe");
+                    return;
+                }
+                if(pick>=0){
+                    break;
+                }
+                System.out.println("Podano bledna liczbe, wpisz ponownie");
+            }
+
             if (Objects.equals(pick, 0)) {
                 deleteItem = false;
             } else if (pick - 1 < sofas.size()) {
