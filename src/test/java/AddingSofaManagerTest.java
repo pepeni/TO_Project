@@ -63,22 +63,22 @@ public class AddingSofaManagerTest {
     @Test
     void shouldExecuteAllSofaStepsCorrectly() {
 
-        String input = "modern sofa\n2\nFrench\nwyjdz\n";
+        String input = "modern sofa\n2\nFrench\n";
         String results=getOutputFromTest(input);
-        Assertions.assertEquals(("sofy:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj iluosobowa jest:Podaj styl:Twój produkt:Dodano pomyślnieWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+        Assertions.assertEquals(("sofy:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj iluosobowa jest:Podaj styl:Twój produkt:Dodano pomyślnie"), results);
         outContent= new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        input = "traditional sofa\n3\nFrench\nwyjdz\n";
+        input = "traditional sofa\n3\nFrench\n";
         results=getOutputFromTest(input);
-        Assertions.assertEquals(("sofy:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj iluosobowa jest:Podaj styl:Twój produkt:Dodano pomyślnieWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+        Assertions.assertEquals(("sofy:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj iluosobowa jest:Podaj styl:Twój produkt:Dodano pomyślnie"), results);
 
     }
     @Test
     void shouldReportWrongNumberOfSeats() {
-        String input = "modern sofa\na\nwyjdz\n";
+        String input = "modern sofa\na\n";
         String results=getOutputFromTest(input);
         Assertions.assertEquals(("sofy:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu" +
-                "Podaj iluosobowa jest:Podano bledna liczbeWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+                "Podaj iluosobowa jest:Podano bledna liczbe"), results);
     }
     @Test
     void shouldAskAgainWhenNameOfSofaIsWrong()

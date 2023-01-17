@@ -61,22 +61,22 @@ public class AddingTableManagerTest {
     @Test
     void shouldExecuteAllTableStepsCorrectly() {
 
-        String input = "modern table\nFrench\ncoffee table\ncircle\nwyjdz\n";
+        String input = "modern table\nFrench\ncoffee table\ncircle\n";
         String results=getOutputFromTest(input);
-        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj styl:Podaj rodzaj:Podaj ksztalt:Twoj produkt:Dodano pomyślnieWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj styl:Podaj rodzaj:Podaj ksztalt:Twoj produkt:Dodano pomyślnie"), results);
         outContent= new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        input = "traditional table\nFrench\ncoffee table\ncircle\nwyjdz\n";
+        input = "traditional table\nFrench\ncoffee table\ncircle\n";
         results=getOutputFromTest(input);
-        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj styl:Podaj rodzaj:Podaj ksztalt:Twoj produkt:Dodano pomyślnieWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuPodaj styl:Podaj rodzaj:Podaj ksztalt:Twoj produkt:Dodano pomyślnie"), results);
 
     }
     @Test
     void shouldAskAgainWhenNameOfTableIsWrong()
     {
-        String input = "modernistyczna table\nFrench\nwyjdz\n";
+        String input = "modernistyczna table\nFrench\n";
         String results=getOutputFromTest(input);
-        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybuWpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
+        Assertions.assertEquals(("stoly:Wpisz poprawnie nazwe przedmiotu, który chcesz dodać do koszykawyjdz - wyjdź z tego trybu"), results);
 
     }
     @Test
